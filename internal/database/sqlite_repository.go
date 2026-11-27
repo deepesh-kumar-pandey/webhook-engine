@@ -11,4 +11,3 @@ func NewSQLiteRepository(db *sql.DB) *SQLiteRepository {
 		db: db,
 	}
 }
-
