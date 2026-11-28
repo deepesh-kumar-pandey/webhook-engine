@@ -8,6 +8,7 @@ import (
 
 	databasepkg "github.com/deepesh-kumar-pandey/webhook-engine/internal/database"
 	jobpkg "github.com/deepesh-kumar-pandey/webhook-engine/internal/job"
+	repositorypkg "github.com/deepesh-kumar-pandey/webhook-engine/internal/repository"
 )
 
 const leaseDuration = 30 * time.Second
@@ -15,6 +16,8 @@ const leaseDuration = 30 * time.Second
 type JobRepository struct {
 	db *databasepkg.SQLite
 }
+
+var _ repositorypkg.JobRepository = (*JobRepository)(nil)
 
 func NewJobRepository(db *databasepkg.SQLite) *JobRepository {
 	return &JobRepository{
